@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Självvattnande kruka</title>
-    <link rel="stylesheet" href="./style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        Välkommen till hemsidan för din självvattnande kruka!
+        <h1>Välkommen till hemsidan för din självvattnande kruka!</h1>
         <div class="menu-icon" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
+
         <div id="menu" class="menu-items">
-            <a href="#">Startsida</a>
+            <a href="index.html">Startsida</a>
             <a href="waterlevel.html">Vattennivå i tanken och jordfuktighet</a>
             <a href="questionAI.html">Fråga AI</a>
             <a href="#vision">Vision</a>
@@ -26,9 +27,8 @@
     <div class="main-content">
         <img src="växt.webp" alt="Självvattnande kruka">
 
-        <button class="option-button">Vattennivån i tanken</button>
+        <button onclick="window.location.href='waterlevel.html'" class="option-button">Vattennivån i tanken och jordfuktighet</button>
         <button onclick="window.location.href='questionAI.html'" class="option-button">Fråga AI om information kring din växt</button>
-
     </div>
 
     <section id="vision" style="padding: 100px 20px; background-color: rgba(255,255,255,0.9); margin-top: 50px;">
@@ -43,7 +43,7 @@
         </p>
     
     </section>
-    <script src="./script.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
-
