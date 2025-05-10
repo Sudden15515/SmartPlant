@@ -24,7 +24,7 @@ function checkStatus() {
 }
 
 
-const OPENAI_API_KEY = "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";  
+const OPENAI_API_KEY = "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";  
 
 async function handleAIQuestion() {
     const question = document.getElementById("ai-question").value.trim();
