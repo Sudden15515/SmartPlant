@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fråga AI</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        Välkommen till inställningarna för din självvattnande kruka!
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="menu" class="menu-items">
+            <a href="index.html">Startsida</a>
+            <a href="#">Vattennivå i tanken</a>
+            <a href="questionAI.html">Fråga AI</a>
+            <a href="#vision">Vision</a>
+        </div>
+    </header>
+
+    <section class="main-content">
+        <h2>Ställ din fråga till AI:</h2>
+        <input type="text" id="ai-question" placeholder="Skriv din fråga här...">
+        <button onclick="handleAIQuestion()">Skicka</button>
+        
+        <div id="ai-response">Hej! Ställ en fråga till mig så svarar jag här</div>
+
+    <section id="vision" style="padding: 100px 20px; background-color: rgba(255,255,255,0.9); margin-top: 700px;">
+    <h2>Vision</h2>
+    
+    <p style="max-width: 600px; margin: 0 auto 20px; text-align: center; line-height: 1.6;">
+        Har du lätt att glömma bort dina växter eller har du en resa bokad? Inga problem! Din självvattnande kruka sköter jobbet åt dig medan du stressar över annat eller njuter av en kall öl på stranden.
+    </p>
+    
+    <p style="max-width: 600px; margin: 0 auto 40px; text-align: center; line-height: 1.6;">
+        Med smart teknik och hållbar design vill vi hjälpa människor att ta hand om sina växter utan stress.
+    </p>
+
+    </section>
+
+    <script src="./script.js"></script>
+</body>
+</html>
