@@ -3,6 +3,27 @@ function toggleMenu() {
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 
+function checkStatus() {
+    const waterLevelElement = document.getElementById("water-level");
+    const soilMoistureElement = document.getElementById("soil-moisture");
+
+    const arduinoIP = "http://192.168.1.100"; // Byt ut med Arduino IP-adress
+    const endpoint = `${arduinoIP}/data`;
+
+    fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+            waterLevelElement.textContent = `Vattennivå: ${data.waterLevel}%`;
+            soilMoistureElement.textContent = `Jordfuktighet: ${data.soilMoisture}%`;
+        })
+        .catch(error => {
+            console.error("Fel vid hämtning av data:", error);
+            waterLevelElement.textContent = "Kunde inte hämta data.";
+            soilMoistureElement.textContent = "Kunde inte hämta data.";
+        });
+}
+
+
 const OPENAI_API_KEY = "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";  
 
 async function handleAIQuestion() {
