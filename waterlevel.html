@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vattennivå i tanken och jordfuktighet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Vattennivå och Jordfuktighet</h1>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="menu" class="menu-items">
+        <a href="index.html">Startsida</a>
+        <a href="waterlevel.html">Vattennivå och Jordfuktighet</a>
+        <a href="questionAI.html">Fråga AI</a>
+    </div>
+</header>
+
+<div class="main-content">
+    <h2>Nuvarande status:</h2>
+    
+    <div class="status-section">
+        <h3>Vattennivå:</h3>
+        <p id="water-level">Laddar data...</p>
+    </div>
+
+    <div class="status-section">
+        <h3>Jordfuktighet:</h3>
+        <p id="soil-moisture">Laddar data...</p>
+    </div>
+
+    <button onclick="checkStatus()">Uppdatera status</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
 
