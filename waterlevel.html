@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vattennivå i tanken och jordfuktighet</title>
+    <title>Vattennivå och Jordfuktighet</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -39,6 +41,43 @@
         <button onclick="window.location.href='index.html'" class="option-button">Tillbaka till Startsidan</button>
     </div>
 
+    <!-- Firebase Konfiguration och Datahantering -->
+    <script>
+        // Firebase-konfiguration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA_deY9PhVw0yx_Ng2rYw6JeqH50_7rxEE",
+            authDomain: "smartplant-f0410.firebaseapp.com",
+            databaseURL: "https://smartplant-f0410-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "smartplant-f0410",
+            storageBucket: "smartplant-f0410.firebasestorage.app",
+            messagingSenderId: "44947499308",
+            appId: "1:44947499308:web:34042ba20b69747d362489",
+            measurementId: "G-WFFLWG63EN"
+        };
+
+        // Initiera Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Referenser till databasen
+        const waterLevelRef = database.ref("/SmartPlant/vattenniva");
+        const soilMoistureRef = database.ref("/SmartPlant/jordfuktighet");
+
+        // Hämta och visa Vattennivå
+        waterLevelRef.on("value", (snapshot) => {
+            const waterLevel = snapshot.val();
+            document.getElementById("water-level").innerText = waterLevel !== null ? `${waterLevel}` : "Ingen data";
+        });
+
+        // Hämta och visa Jordfuktighet
+        soilMoistureRef.on("value", (snapshot) => {
+            const soilMoisture = snapshot.val();
+            document.getElementById("soil-moisture").innerText = soilMoisture !== null ? `${soilMoisture}` : "Ingen data";
+        });
+    </script>
+
+    <!-- JavaScript för hamburgarmenyn -->
     <script src="script.js"></script>
 </body>
 </html>
+
