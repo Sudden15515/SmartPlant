@@ -3,7 +3,7 @@ function toggleMenu() {
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 
-const OPENAI_API_KEY = "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";  
+const OPENAI_API_KEY = "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";  
 
 async function handleAIQuestion() {
     const question = document.getElementById("ai-question").value.trim();
