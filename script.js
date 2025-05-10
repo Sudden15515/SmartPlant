@@ -1,3 +1,34 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyA_deY9PhWw8yx_Ng2rYw6JeqH50_7rxEE",
+    authDomain: "smartplant-f0410.firebaseapp.com",
+    databaseURL: "https://smartplant-f0410-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "smartplant-f0410",
+    storageBucket: "smartplant-f0410.appspot.com",
+    messagingSenderId: "44947499308",
+    appId: "1:44947499308:web:34042ba20b69747d362489"
+};
+
+// Initiera Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+// Variabel för att lagra API-nyckeln
+let OPENAI_API_KEY = "";
+
+// Hämta API-nyckeln från Firebase
+function fetchAPIKey() {
+    const apiKeyRef = database.ref("SmartPlant/apikeys/openai_key");
+    apiKeyRef.once("value", (snapshot) => {
+        OPENAI_API_KEY = snapshot.val();
+        console.log("API-nyckel laddad:", OPENAI_API_KEY);
+    }).catch((error) => {
+        console.error("Fel vid hämtning av API-nyckel:", error);
+    });
+}
+
+// Kör funktionen för att hämta API-nyckeln
+fetchAPIKey();
+
 function toggleMenu() {
     const menu = document.getElementById("menu");
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
@@ -24,8 +55,6 @@ function checkStatus() {
 }
 
 
-const OPENAI_API_KEY = "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";  
-
 async function handleAIQuestion() {
     const question = document.getElementById("ai-question").value.trim();
     const responseBox = document.getElementById("ai-response");
@@ -37,6 +66,12 @@ async function handleAIQuestion() {
 
     responseBox.textContent = "AI svarar...";
 
+    if (!OPENAI_API_KEY) {
+        responseBox.textContent = "API-nyckeln kunde inte laddas från Firebase.";
+        console.error("Ingen API-nyckel hittades.");
+        return;
+    }
+    
     const requestBody = {
         model: "gpt-4o-mini",
         messages: [
