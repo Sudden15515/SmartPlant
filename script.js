@@ -1,4 +1,6 @@
-
+// Initiera Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
 // Variabel för att lagra API-nyckeln
 let OPENAI_API_KEY = "";
 
