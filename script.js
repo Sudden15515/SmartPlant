@@ -1,16 +1,3 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyA_deY9PhWw8yx_Ng2rYw6JeqH50_7rxEE",
-    authDomain: "smartplant-f0410.firebaseapp.com",
-    databaseURL: "https://smartplant-f0410-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "smartplant-f0410",
-    storageBucket: "smartplant-f0410.appspot.com",
-    messagingSenderId: "44947499308",
-    appId: "1:44947499308:web:34042ba20b69747d362489"
-};
-
-// Initiera Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
 
 // Variabel för att lagra API-nyckeln
 let OPENAI_API_KEY = "";
